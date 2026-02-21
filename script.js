@@ -12,9 +12,8 @@ let jobs = [
 
 let currentTab = 'All';
 
+// main render function
 
- // rendering datas
- 
 const renderJobs = () => {
     const container = document.getElementById('job-container');
     const totalCountEl = document.getElementById('total-count');
@@ -25,7 +24,7 @@ const renderJobs = () => {
     // filter logic
     const filteredJobs = jobs.filter(job => currentTab === 'All' ? true : job.status === currentTab);
 
-    // dashboard info
+    // dashboard numbers
     const totalCount = jobs.length;
     totalCountEl.textContent = totalCount;
     interviewCountEl.textContent = jobs.filter(j => j.status === 'Interview').length;
@@ -36,15 +35,15 @@ const renderJobs = () => {
         ? `${totalCount} jobs` 
         : `${filteredJobs.length} of ${totalCount} jobs`;
 
-    // when empty
+    // empty state
     if (filteredJobs.length === 0) {
         container.innerHTML = `
-            <div class="flex flex-col items-center justify-center py-20 text-center animate-pulse">
-                <div class="mb-4">
-                    <img src="jobs.png" alt="No Jobs Available" class="h-32 w-32 object-contain mx-auto opacity-50" />
+            <div class="bg-white p-12 rounded-lg shadow-sm border border-gray-100 flex flex-col items-center justify-center text-center">
+                <div class="mb-6">
+                    <img src="jobs.png" alt="No Jobs Available" class="h-32 w-32 object-contain mx-auto" />
                 </div>
-                <h3 class="text-xl font-bold text-gray-700">No Jobs Available</h3>
-                <p class="text-gray-500">Try switching tabs or adjusting your applications.</p>
+                <h3 class="text-2xl font-bold text-[#003366] mb-2">No jobs available</h3>
+                <p class="text-gray-500">Check back soon for new job opportunities.</p>
             </div>
         `;
         return;
@@ -89,7 +88,6 @@ const renderJobs = () => {
     `).join('');
 };
 
-// status pill styling
 const getStatusStyle = (status) => {
     switch(status) {
         case 'Interview': return 'bg-emerald-100 text-emerald-700';
@@ -98,24 +96,16 @@ const getStatusStyle = (status) => {
     }
 };
 
-
- //  tab Switching logic
-
 window.switchTab = (tab) => {
     currentTab = tab;
-    // ui update
     document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('tab-active'));
     document.getElementById(`tab-${tab}`).classList.add('tab-active');
     renderJobs();
 };
 
-
- //  job status Toggles
-
 window.updateJobStatus = (id, newStatus) => {
     jobs = jobs.map(job => {
         if (job.id === id) {
-            // Revert to 'All' if the same button is clicked again
             const updatedStatus = job.status === newStatus ? 'All' : newStatus;
             return { ...job, status: updatedStatus };
         }
@@ -124,8 +114,6 @@ window.updateJobStatus = (id, newStatus) => {
     renderJobs();
 };
 
-// job deletion
- 
 window.deleteJob = (id) => {
     if(confirm("Are you sure you want to delete this job record?")) {
         jobs = jobs.filter(job => job.id !== id);
@@ -133,5 +121,4 @@ window.deleteJob = (id) => {
     }
 };
 
-// Start
 document.addEventListener('DOMContentLoaded', renderJobs);
