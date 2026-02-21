@@ -10,6 +10,7 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         
+        /* Gradient: Dark (bottom-right) to Light (top-left) */
         .tab-active { 
             background: linear-gradient(315deg, #1e40af 0%, #60a5fa 100%) !important; 
             color: white !important; 
@@ -50,9 +51,18 @@
         </div>
 
         <div class="flex gap-2 mb-8 overflow-x-auto pb-2">
-            <button onclick="switchTab('All')" id="tab-All" class="tab-btn px-5 py-1.5 bg-white border border-gray-200 text-gray-500 rounded text-sm font-medium transition-all tab-active">All</button>
-            <button onclick="switchTab('Interview')" id="tab-Interview" class="tab-btn px-5 py-1.5 bg-white border border-gray-200 text-gray-500 rounded text-sm font-medium transition-all">Interview</button>
-            <button onclick="switchTab('Rejected')" id="tab-Rejected" class="tab-btn px-5 py-1.5 bg-white border border-gray-200 text-gray-500 rounded text-sm font-medium transition-all">Rejected</button>
+            <button onclick="switchTab('All')" id="tab-All" 
+                class="tab-btn px-5 py-1.5 bg-white border border-gray-200 text-gray-500 rounded text-sm font-medium transition-all hover:border-blue-400 hover:text-blue-600 hover:opacity-90 tab-active">
+                All
+            </button>
+            <button onclick="switchTab('Interview')" id="tab-Interview" 
+                class="tab-btn px-5 py-1.5 bg-white border border-gray-200 text-gray-500 rounded text-sm font-medium transition-all hover:border-blue-400 hover:text-blue-600 hover:opacity-90">
+                Interview
+            </button>
+            <button onclick="switchTab('Rejected')" id="tab-Rejected" 
+                class="tab-btn px-5 py-1.5 bg-white border border-gray-200 text-gray-500 rounded text-sm font-medium transition-all hover:border-blue-400 hover:text-blue-600 hover:opacity-90">
+                Rejected
+            </button>
         </div>
 
         <div id="job-container" class="space-y-6 pb-10"></div>
