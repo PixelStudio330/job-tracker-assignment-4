@@ -7,20 +7,20 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <script src="script.js" defer></script>
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-    
-    .tab-active { 
-        background: linear-gradient(315deg, #1e40af 0%, #60a5fa 100%) !important; 
-        color: white !important; 
-        border: none !important;
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-    }
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        .tab-active { 
+            background: linear-gradient(315deg, #1e40af 0%, #60a5fa 100%) !important; 
+            color: white !important; 
+            border: none !important;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+        }
 
-    .overflow-x-auto::-webkit-scrollbar {
-        display: none;
-    }
-</style>
+        .overflow-x-auto::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
 </head>
 <body class="bg-gray-50 p-4 md:p-10">
 
@@ -28,15 +28,15 @@
         <h2 class="text-3xl font-bold text-[#003366] mb-6">Job Application Tracker</h2>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div class="bg-white p-6 rounded-md shadow-sm border border-gray-100 min-h-[140px] flex flex-col justify-between">
+            <div class="bg-white p-6 rounded-md shadow-sm border border-gray-100 min-h-[140px] flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md">
                 <span class="text-gray-400 font-medium text-sm">Total</span>
                 <span id="total-count" class="text-4xl font-bold text-[#003366]">0</span>
             </div>
-            <div class="bg-white p-6 rounded-md shadow-sm border border-gray-100 min-h-[140px] flex flex-col justify-between">
+            <div class="bg-white p-6 rounded-md shadow-sm border border-gray-100 min-h-[140px] flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md">
                 <span class="text-gray-400 font-medium text-sm">Interview</span>
                 <span id="interview-count" class="text-4xl font-bold text-[#10b981]">0</span>
             </div>
-            <div class="bg-white p-6 rounded-md shadow-sm border border-gray-100 min-h-[140px] flex flex-col justify-between">
+            <div class="bg-white p-6 rounded-md shadow-sm border border-gray-100 min-h-[140px] flex flex-col justify-between transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md">
                 <span class="text-gray-400 font-medium text-sm">Rejected</span>
                 <span id="rejected-count" class="text-4xl font-bold text-[#ef4444]">0</span>
             </div>
