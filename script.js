@@ -12,9 +12,7 @@ let jobs = [
 
 let currentTab = 'All';
 
-/**
- * Main render function
- */
+/* Main render function */
 const renderJobs = () => {
     const container = document.getElementById('job-container');
     const totalCountEl = document.getElementById('total-count');
@@ -22,7 +20,7 @@ const renderJobs = () => {
     const rejectedCountEl = document.getElementById('rejected-count');
     const listCountEl = document.getElementById('job-list-count');
 
-    // filter logic
+    //  filter logic
     const filteredJobs = jobs.filter(job => currentTab === 'All' ? true : job.status === currentTab);
 
     // dashboard numbers
@@ -51,7 +49,7 @@ const renderJobs = () => {
     }
 
     // filtered data and render cards
-    // Added 'hover:border-blue-500' for the border animation
+    // Added hover for the border animation
     container.innerHTML = filteredJobs.map(job => `
         <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 relative transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md hover:border-blue-500">
             
