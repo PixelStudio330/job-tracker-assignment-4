@@ -1,11 +1,61 @@
-1 <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Job Application Tracker</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Custom Active Tab Class */
+        .tab-active { 
+            background-color: #4285F4 !important; 
+            color: white !important; 
+            border-color: #4285F4 !important; 
+        }
+        /* Custom Scrollbar for the tab container on mobile */
+        .overflow-x-auto::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
 </head>
-<body>
-    
+<body class="bg-gray-50 p-4 md:p-10">
+
+    <div class="max-w-6xl mx-auto">
+        <h2 class="text-3xl font-bold text-[#003366] mb-6">Job Application Tracker</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+            <div class="bg-white p-6 rounded-md shadow-sm border border-gray-100 min-h-[140px] flex flex-col justify-between">
+                <span class="text-gray-400 font-medium text-sm">Total</span>
+                <span id="total-count" class="text-4xl font-bold text-[#003366]">0</span>
+            </div>
+            <div class="bg-white p-6 rounded-md shadow-sm border border-gray-100 min-h-[140px] flex flex-col justify-between">
+                <span class="text-gray-400 font-medium text-sm">Interview</span>
+                <span id="interview-count" class="text-4xl font-bold text-[#10b981]">0</span>
+            </div>
+            <div class="bg-white p-6 rounded-md shadow-sm border border-gray-100 min-h-[140px] flex flex-col justify-between">
+                <span class="text-gray-400 font-medium text-sm">Rejected</span>
+                <span id="rejected-count" class="text-4xl font-bold text-[#ef4444]">0</span>
+            </div>
+        </div>
+
+        <hr class="border-gray-200 mb-12">
+
+        <div class="flex justify-between items-center mb-6">
+            <h2 class="text-2xl font-bold text-[#003366]">Available Jobs</h2>
+            <span class="text-gray-500 font-semibold" id="job-list-count">0 jobs</span>
+        </div>
+
+        <div class="flex gap-2 mb-8 overflow-x-auto pb-2">
+            <button onclick="switchTab('All')" id="tab-All" class="tab-btn px-5 py-1.5 bg-white border border-gray-200 text-gray-500 rounded text-sm font-medium transition-all tab-active">All</button>
+            <button onclick="switchTab('Interview')" id="tab-Interview" class="tab-btn px-5 py-1.5 bg-white border border-gray-200 text-gray-500 rounded text-sm font-medium transition-all">Interview</button>
+            <button onclick="switchTab('Rejected')" id="tab-Rejected" class="tab-btn px-5 py-1.5 bg-white border border-gray-200 text-gray-500 rounded text-sm font-medium transition-all">Rejected</button>
+        </div>
+
+        <div id="job-container" class="space-y-6 pb-10">
+            </div>
+    </div>
 </body>
 </html>
