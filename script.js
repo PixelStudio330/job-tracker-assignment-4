@@ -12,8 +12,9 @@ let jobs = [
 
 let currentTab = 'All';
 
-// main render function
-
+/**
+ * Main render function
+ */
 const renderJobs = () => {
     const container = document.getElementById('job-container');
     const totalCountEl = document.getElementById('total-count');
@@ -50,8 +51,9 @@ const renderJobs = () => {
     }
 
     // filtered data and render cards
+    // Added 'hover:border-blue-500' for the border animation
     container.innerHTML = filteredJobs.map(job => `
-        <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 relative transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md">
+        <div class="bg-white p-8 rounded-lg shadow-sm border border-gray-100 relative transition-all duration-300 transform hover:-translate-y-1 hover:shadow-md hover:border-blue-500">
             
             <button onclick="deleteJob(${job.id})" class="absolute top-8 right-8 text-gray-300 hover:text-red-500 transition-colors border border-gray-100 p-1.5 rounded">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
